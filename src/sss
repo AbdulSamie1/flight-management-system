@@ -1,0 +1,110 @@
+public void manageRightMov() {
+		if(index == 0) {
+			SnakeAttributes e = new SnakeAttributes();
+			int t1 = ls.get(index).sXval;
+			int t2 = ls.get(index).sYval;
+			ls.remove(index);
+			e.sXval = t1 - this.speed;
+			e.sYval = t2;
+			ls.add(0,e);
+			if(ls.get(index+1).sYval != t2) {
+				for(int j = index + 1; j < height; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1;
+					if(lDir == 0) {
+						e1.sYval = r2 - this.speed;
+					}else if(lDir == 1) {
+						e1.sYval = r2 + this.speed;
+					}
+					ls.add(j,e1);
+				}
+			}
+			else {
+				for(int j = index + 1; j < height; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1 - this.speed;
+					e1.sYval = r2;
+					ls.add(j,e1);
+				}
+			}
+		}
+		else if(index == height - 1) {
+			SnakeAttributes e = new SnakeAttributes();
+			int t1 = ls.get(index).sXval;
+			int t2 = ls.get(index).sYval;
+			ls.remove(index);
+			e.sXval = t1 - this.speed;
+			e.sYval = t2;
+			ls.add(e);
+				for(int j = 0; j < index; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1 - this.speed;
+					e1.sYval = r2;
+					ls.add(j,e1);
+				}
+		}
+		else {
+			SnakeAttributes e = new SnakeAttributes();
+			int t1 = ls.get(index).sXval;
+			int t2 = ls.get(index).sYval;
+			ls.remove(index);
+			e.sXval = t1 - this.speed;
+			e.sYval = t2;
+			ls.add(index,e);
+			if(ls.get(index+1).sYval != t2) {
+				for(int j = 0; j < index; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1 - this.speed;
+					e1.sYval = r2;
+					ls.add(j,e1);
+				}
+				for(int j = index + 1; j < height; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1;
+					if(lDir == 0) {
+						e1.sYval = r2 - this.speed;
+					}else if(lDir == 1) {
+						e1.sYval = r2 + this.speed;
+					}
+					ls.add(j,e1);
+				}
+			}
+			else {
+				for(int j = 0; j < index; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1 - this.speed;
+					e1.sYval = r2;
+					ls.add(j,e1);
+				}
+				for(int j = index + 1; j < height; j++) {
+					SnakeAttributes e1 = new SnakeAttributes();
+					int r1 = ls.get(j).sXval;
+					int r2 = ls.get(j).sYval;
+					ls.remove(j);
+					e1.sXval = r1 - this.speed;
+					e1.sYval = r2;
+					ls.add(j,e1);
+				}
+			}
+			
+		}
+	index++;
+	}
